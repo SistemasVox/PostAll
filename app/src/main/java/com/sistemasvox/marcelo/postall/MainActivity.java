@@ -60,9 +60,11 @@ public class MainActivity extends Activity {
         }*/
         //posts.add(new Post("0", "0", "antes de consultar JSON", ""));
 
-        Log.i(TAG, "Lista antes While: [" + posts.size()+"].");
+        Log.i(TAG, "Lista antes construirJSON: [" + posts.size()+"].");
         construirJSON(1);
-        Log.i(TAG, "Lista apos While : [" + posts.size()+"].");
+        construirJSON(2);
+        construirJSON(3);
+        Log.i(TAG, "Lista apos construirJSON: [" + posts.size()+"].");
 
         /*
         construirJSON(1);
