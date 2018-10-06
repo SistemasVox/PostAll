@@ -39,11 +39,11 @@ public class MainActivity extends Activity {
         posts = new ArrayList<Post>();
 
 
-        Log.i(TAG, "Lista Tamanho antes: [" + posts.size()+"].");
+        Log.i(TAG, "Lista antes buscarTodosPosts: [" + posts.size()+"].");
 
         buscarTodosPosts();
 
-        Log.i(TAG, "Lista Tamanho apos : [" + posts.size()+"].");
+        Log.i(TAG, "Lista apos buscarTodosPosts : [" + posts.size()+"].");
 
 
         listView.setAdapter(new PostAdapter(this, posts));
@@ -59,8 +59,10 @@ public class MainActivity extends Activity {
             cont ++;
         }*/
         //posts.add(new Post("0", "0", "antes de consultar JSON", ""));
+
+        Log.i(TAG, "Lista antes While: [" + posts.size()+"].");
         construirJSON(1);
-        Log.i(TAG, "Lista Tamanho apos while : [" + posts.size()+"].");
+        Log.i(TAG, "Lista apos While : [" + posts.size()+"].");
 
         /*
         construirJSON(1);
@@ -88,7 +90,7 @@ public class MainActivity extends Activity {
                 if (statusCode != 404){
                     Post post = response.body();
                     posts.add(new Post(post.getUserId(), post.getId(), post.getTitle(), post.getBody()));
-                    Log.i(TAG, "Entrou no Post: [" + post.getTitle()+"].");
+                    Log.i(TAG, "Entrou no construirJSON: [" + post.getTitle()+"].");
                     //Log.i(TAG, "Lista Size: [" + posts.size()+"].");
                 }else{
                     parar = true;
