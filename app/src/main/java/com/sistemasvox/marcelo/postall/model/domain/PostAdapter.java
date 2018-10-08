@@ -47,7 +47,7 @@ public class PostAdapter extends BaseAdapter {
         TextView id = (TextView) linha.findViewById(R.id.id);
         TextView titulo = (TextView) linha.findViewById(R.id.titulo);
 
-        id.setText("ID: " + post.getUserId());
+        id.setText("ID: " + post.getId());
         titulo.setText("Título: " + post.getTitle());
 
         return linha;

@@ -46,7 +46,7 @@ public class MainActivity extends Activity {
         Log.i(TAG, "Lista apos buscarTodosPosts : [" + posts.size()+"].");
 
 
-        listView.setAdapter(new PostAdapter(this, posts));
+
         setContentView(listView);
     }
 
@@ -60,11 +60,15 @@ public class MainActivity extends Activity {
         }*/
         //posts.add(new Post("0", "0", "antes de consultar JSON", ""));
 
+        for (int i = 1; i <= 100; i ++){
+            construirJSON(i);
+        }
+        /*
         Log.i(TAG, "Lista antes construirJSON: [" + posts.size()+"].");
         construirJSON(1);
         construirJSON(2);
         construirJSON(3);
-        Log.i(TAG, "Lista apos construirJSON: [" + posts.size()+"].");
+        Log.i(TAG, "Lista apos construirJSON: [" + posts.size()+"].");*/
 
         /*
         construirJSON(1);
@@ -91,11 +95,13 @@ public class MainActivity extends Activity {
                 int statusCode = response.code();
                 if (statusCode != 404){
                     Post post = response.body();
-                    posts.add(new Post(post.getUserId(), post.getId(), post.getTitle(), post.getBody()));
+                    posts.add(post);
+                    listView.setAdapter(new PostAdapter(MainActivity.this, posts));
                     Log.i(TAG, "Entrou no construirJSON: [" + post.getTitle()+"].");
                     //Log.i(TAG, "Lista Size: [" + posts.size()+"].");
                 }else{
                     parar = true;
+                    Log.i(TAG, "Zero nao tem" );
                 }
 
             }
